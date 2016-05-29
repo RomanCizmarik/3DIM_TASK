@@ -24,6 +24,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(settingsDialog,SIGNAL(ratioModeChanged(Qt::AspectRatioMode)),
             this,SLOT(on_ratio_mode_changed(Qt::AspectRatioMode)));
 
+
     //maximize window
     this->setWindowState(Qt::WindowMaximized);
 }
@@ -153,4 +154,29 @@ void MainWindow::on_actionClose_triggered()
 void MainWindow::on_actionSettings_triggered()
 {
     settingsDialog->show();
+}
+
+void MainWindow::on_actionZoom_out_triggered()
+{
+    ui->graphicsView->zoomOut();
+}
+
+void MainWindow::on_actionZoom_in_triggered()
+{
+    ui->graphicsView->zoomIn();
+}
+
+void MainWindow::on_action300_triggered()
+{
+    ui->graphicsView->zoom(3);
+}
+
+void MainWindow::on_action200_triggered()
+{
+    ui->graphicsView->zoom(2);
+}
+
+void MainWindow::on_action100_triggered()
+{
+    ui->graphicsView->zoom(1);
 }

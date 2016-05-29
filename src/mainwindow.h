@@ -66,6 +66,16 @@ private slots:
 
     void on_actionSettings_triggered();
 
+    void on_actionZoom_out_triggered();
+
+    void on_actionZoom_in_triggered();
+
+    void on_action300_triggered();
+
+    void on_action200_triggered();
+
+    void on_action100_triggered();
+
 private:
     Ui::MainWindow *ui;
     QGraphicsScene *scene;

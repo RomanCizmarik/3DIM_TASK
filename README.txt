@@ -1,8 +1,8 @@
 AUTOR: Roman Cizmarik
 
-Spustitelne demo Roman_Cizmarik_3DIM_TASK.exe sa nachadza v adresary bin
+Spustitelne demo Roman_Cizmarik_3DIM_TASK.exe sa nachadza v adresari bin
 
-Zdroje kody su v adresary src
+Zdrojeve kody su v adresari src
 
 ###############
 #Preklad:	##

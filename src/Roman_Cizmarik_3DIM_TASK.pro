@@ -11,19 +11,23 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = Roman_Cizmarik_3DIM_TASK
 TEMPLATE = app
 
+############# CHANGE THIS ####################
+DCMTK_PATH = C:/dcmtk-3.6.1/
+DCMTK_BUILD_PATH = C:/dcmtk-3.6.1/build/
+##############################################
 
-INCLUDEPATH += C:/dcmtk-3.6.1/dcmdata/include
-INCLUDEPATH += C:/dcmtk-3.6.1/build/config/include
-INCLUDEPATH += C:/dcmtk-3.6.1/ofstd/include
-INCLUDEPATH += C:/dcmtk-3.6.1/oflog/include
-INCLUDEPATH += C:/dcmtk-3.6.1/dcmsr/include
-INCLUDEPATH += C:/dcmtk-3.6.1/dcmimgle/include
-INCLUDEPATH += C:/dcmtk-3.6.1/dcmimage/include
-INCLUDEPATH += C:/dcmtk-3.6.1/dcmjpls/include
+INCLUDEPATH += $$DCMTK_PATH"dcmdata/include"
+INCLUDEPATH += $$DCMTK_PATH"ofstd/include"
+INCLUDEPATH += $$DCMTK_PATH"oflog/include"
+INCLUDEPATH += $$DCMTK_PATH"dcmsr/include"
+INCLUDEPATH += $$DCMTK_PATH"dcmimgle/include"
+INCLUDEPATH += $$DCMTK_PATH"dcmimage/include"
+INCLUDEPATH += $$DCMTK_PATH"dcmjpls/include"
+INCLUDEPATH += $$DCMTK_BUILD_PATH"config/include"
 
 
-QMAKE_LIBDIR += "C:/dcmtk-3.6.1/build/bin/Release"
-QMAKE_LIBDIR += "C:/dcmtk-3.6.1/build/lib/Release"
+QMAKE_LIBDIR += $$DCMTK_BUILD_PATH"bin/Release"
+QMAKE_LIBDIR += $$DCMTK_BUILD_PATH"lib/Release"
 
 DCMTK_LIBS = -LC:/dcmtk-3.6.1/build/bin/Release \
             -ldcmdata \
@@ -34,11 +38,11 @@ DCMTK_LIBS = -LC:/dcmtk-3.6.1/build/bin/Release \
 
 LIBS += $${DCMTK_LIBS}
 
-INCLUDEPATH += C:/dcmtk-3.6.1/build/bin/Release
-DEPENDPATH += C:/dcmtk-3.6.1/build/bin/Release
+INCLUDEPATH += $$DCMTK_BUILD_PATH"bin/Release"
+DEPENDPATH += $$DCMTK_BUILD_PATH"bin/Release"
 
-INCLUDEPATH += C:/dcmtk-3.6.1/build/lib/Release
-DEPENDPATH += C:/dcmtk-3.6.1/build/lib/Release
+INCLUDEPATH += $$DCMTK_BUILD_PATH"lib/Release"
+DEPENDPATH += $$DCMTK_BUILD_PATH"lib/Release"
 
 DEFINES -= UNICODE
 

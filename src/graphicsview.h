@@ -15,6 +15,12 @@ class GraphicsView : public QGraphicsView
 public:
     GraphicsView(QWidget * parent = 0);
 
+public slots:
+
+    void zoomIn();
+    void zoomOut();
+    void zoom(int scaleF);
+
 protected:
     /**
      * @brief wheelEvent
@@ -27,6 +33,7 @@ protected:
 
 private:
     bool controlDown;
+    double scaleFactor;
 };
 
 #endif // GRAPHICSVIEW_H
