@@ -61,9 +61,7 @@ void MainWindow::on_actionOpen_Folder_triggered()
 
     ui->listWidget->clear();
     dicomLoader->loadSeries(dir);
-
     showDicom(dicomLoader->getCurrentImage());
-
     setLabels();
 }
 
@@ -106,15 +104,20 @@ void MainWindow::showDicom(QImage img)
 
 }
 
-
-
-
 void MainWindow::setLabels()
 {
-    ui->patientNameLabel->setText(dicomLoader->getCurrentQDicomImage()->getPatientName());
-    ui->institutionLabel->setText(dicomLoader->getCurrentQDicomImage()->getInstitutionName());
-    QString dateRaw = dicomLoader->getCurrentQDicomImage()->getStudyDate();
-    QString formatedDate = dateRaw.right(2)  + "." + dateRaw.mid(4,2) + "." + dateRaw.left(4) ;
+    QDicomImage* currentQDicImg = dicomLoader->getCurrentQDicomImage();
+    if(currentQDicImg == NULL) return;
+
+    ui->patientNameLabel->setText(currentQDicImg->getPatientName());
+    ui->institutionLabel->setText(currentQDicImg->getInstitutionName());
+
+    QString dateRaw = currentQDicImg->getStudyDate();
+    QString formatedDate = "";
+
+    if(dateRaw.length() == 8)
+        formatedDate = dateRaw.right(2)  + "." + dateRaw.mid(4,2) + "." + dateRaw.left(4) ;
+
     ui->dateLabel->setText(formatedDate);
 }
 void MainWindow::resizeEvent(QResizeEvent* event)

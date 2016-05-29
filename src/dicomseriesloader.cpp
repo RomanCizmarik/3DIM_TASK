@@ -64,6 +64,7 @@ void DicomSeriesLoader::loadSeries(QDir dir_)
     setDir(dir_);
     currentIndex = 0;
     loadSeries();
+
 }
 
 void DicomSeriesLoader::loadSeries(QString fileNameAbsolute)
@@ -84,6 +85,8 @@ void DicomSeriesLoader::setDir(QDir dir_)
 
 QImage DicomSeriesLoader::getQImage(int index)
 {
+    if(qImagesVector.isEmpty()) return QImage();
+
     if(index < 0 || index > qImagesVector.length()) return QImage();
 
     return qImagesVector.at(index);
